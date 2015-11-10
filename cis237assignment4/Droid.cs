@@ -66,5 +66,14 @@ namespace cis237assignment4
                     "Model: " + this.model + Environment.NewLine +
                     "Color: " + this.color + Environment.NewLine;
         }
+       public int CompareTo(Object obj)
+        {
+            IDroid anotherDroid = (IDroid)obj;
+
+            decimal EndCost = this.TotalCost;
+            decimal costTotal = anotherDroid.TotalCost;
+
+            return EndCost.CompareTo(costTotal);
+        }
     }
 }

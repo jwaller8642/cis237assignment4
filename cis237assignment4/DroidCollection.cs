@@ -24,6 +24,8 @@ namespace cis237assignment4
             droidCollection = new IDroid[sizeOfCollection];
             //set length of collection to 0
             lengthOfCollection = 0;
+
+            AddDroids();
         }
 
         //The Add method for a Protocol Droid. The parameters passed in match those needed for a protocol droid
@@ -123,6 +125,74 @@ namespace cis237assignment4
 
             //return the completed string
             return returnString;
+        }
+
+        public IDroid GetDroid(int Index)
+        {
+            int i = 0;
+            while(i < Index)
+            {
+                i++;
+            }
+            return droidCollection[i];
+        }
+
+        public void SortByTotalCost()
+        {
+            MerSort sort = new MerSort();
+            sort.SortArrays(droidCollection);
+            
+        }
+
+        public void SortModel()
+        {
+            
+             GenericStack<UtilityDroid> UtilityDroidStack = new GenericStack<UtilityDroid>();
+            GenericStack<AstromechDroid> AstromechDroidStack = new GenericStack<AstromechDroid>();
+            GenericStack<ProtocolDroid> ProtocolDroidStack = new GenericStack<ProtocolDroid>();
+            GenericStack<JanitorDroid> JanitorDroidStack = new GenericStack<JanitorDroid>();
+           
+
+            foreach(IDroid droids in droidCollection)
+            {
+                if(droids is UtilityDroid)
+                {
+                    UtilityDroidStack.Add((UtilityDroid)droids);
+                    
+                }
+                else if (droids is AstromechDroid)
+                {
+                    AstromechDroidStack.Add((AstromechDroid)droids);
+                }
+                else if (droids is ProtocolDroid)
+                {
+                    ProtocolDroidStack.Add((ProtocolDroid)droids);
+                }
+                else if (droids is JanitorDroid)
+                {
+                    JanitorDroidStack.Add((JanitorDroid)droids);
+                }
+
+                
+                
+                
+            }
+            GenericQueue<Droid> newQueue = new GenericQueue<Droid>();
+           // newQueue.Add(AstromechDroidStack);
+            //newQueue.Add(UtilityDroid);
+
+        }
+        public void AddDroids()
+        {
+            Add("Vanadium", "Astromech", "Blue", true, false, true,false,9);
+            Add("Vanadium", "Astromech", "Red", true, false, true, false,5);
+            Add("Vanadium", "Protocol", "Blue",6);
+            Add("Vanadium", "Protocol", "Gold",7);
+            Add("Vanadium", "Utility", "Gold", true, false, true);
+            Add("Vanadium", "Utility", "Gold", true, false, true);
+            Add("Vanadium", "Janitor", "Blue", true, false, true, false, true);
+            Add("Vanadium", "Janitor", "Red", false, false, true, true, true);
+            //Add("Vanadium", "Astromech", "Red", true, false, true, false, true);
         }
     }
 }

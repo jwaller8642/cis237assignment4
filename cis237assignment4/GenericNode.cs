@@ -14,7 +14,7 @@ namespace cis237assignment4
             set;
         }
 
-        public IComparable GDroid
+        public T GDroid
         {
             get;
             set;
