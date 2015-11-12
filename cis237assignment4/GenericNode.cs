@@ -14,7 +14,7 @@ namespace cis237assignment4
             set;
         }
 
-        public T GDroid
+        public T Data
         {
             get;
             set;

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
+    //Taken From inclass4
     class GenericStack<T>
     {
          private GenericNode<T> current;
         private GenericNode<T> last;
-
+        
         public GenericNode<T> Head
         {
             get;
@@ -24,20 +25,20 @@ namespace cis237assignment4
 
         public void Add(T droid)
         {
-            GenericNode<T> node = new GenericNode<T>();
+            GenericNode<T> newNode = new GenericNode<T>();
 
-            node.GDroid = droid;
+            newNode.Data = droid;
 
             if(Head == null)
             {
-                Head = node;
+                Head = newNode;
             }
             else
             {
-                last.Next = node;
+                last.Next = newNode;
             }
 
-            last = node;
+            last = newNode;
         }
 
         public bool Delete(int Position)
@@ -72,9 +73,9 @@ namespace cis237assignment4
                         {
                             last = previousTempNode;
                         }
-                        //Remove the next pointer of the tempnode
+                        
                         tempNode.Next = null;
-                        //Return True because it was successfull
+                        
                         return true;
                     }
 
@@ -106,5 +107,7 @@ namespace cis237assignment4
             }
             return returnNode;
         }
+
+        
     }
 }

@@ -127,16 +127,8 @@ namespace cis237assignment4
             return returnString;
         }
 
-        public IDroid GetDroid(int Index)
-        {
-            int i = 0;
-            while(i < Index)
-            {
-                i++;
-            }
-            return droidCollection[i];
-        }
-
+       
+        //Sort by total cost
         public void SortByTotalCost()
         {
             MerSort sort = new MerSort();
@@ -157,8 +149,7 @@ namespace cis237assignment4
             {
                 if(droids is UtilityDroid)
                 {
-                    UtilityDroidStack.Add((UtilityDroid)droids);
-                    
+                    UtilityDroidStack.Add((UtilityDroid)droids);                    
                 }
                 else if (droids is AstromechDroid)
                 {
@@ -174,12 +165,15 @@ namespace cis237assignment4
                 }
 
                 
-                
+                //*****************************************************************************************************************PROBLEM***********************************************************************************************************************************8*************************************************
+                //Error	4	Argument 1: cannot convert from 'cis237assignment4.GenericStack<cis237assignment4.UtilityDroid>' to 'cis237assignment4.IDroid'	c:\users\jason\cis237\cis237assignment4\cis237assignment4\droidcollection.cs	174	23	cis237assignment4
+                //Error	3	The best overloaded method match for 'cis237assignment4.GenericQueue<cis237assignment4.IDroid>.Add(cis237assignment4.IDroid)' has some invalid arguments	c:\users\jason\cis237\cis237assignment4\cis237assignment4\droidcollection.cs	175	13	cis237assignment4
+                /************************************************************************************************************************************************************************************************************************************************/
                 
             }
-            GenericQueue<Droid> newQueue = new GenericQueue<Droid>();
-           // newQueue.Add(AstromechDroidStack);
-            //newQueue.Add(UtilityDroid);
+            GenericQueue<IDroid> Queue = new GenericQueue<IDroid>();
+            //Queue.Add(AstromechDroidStack);
+            //Queue.Add(UtilityDroidStack);
 
         }
         public void AddDroids()

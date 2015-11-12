@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
+    // Taken from inClass4
     class GenericQueue<T>
     {
         private GenericNode<T> current;
@@ -26,7 +27,7 @@ namespace cis237assignment4
         {
             GenericNode<T> node = new GenericNode<T>();
 
-            node.GDroid = droid;
+            node.Data = droid;
 
             if(Head == null)
             {
